@@ -1,5 +1,7 @@
 # persistroids
 
+[![Clojars Project](https://img.shields.io/clojars/v/com.github.s-doti/persistroids.svg)](https://clojars.org/com.github.s-doti/persistroids)
+
 Persistence on steroids.
 
 This library is meant as a light-weight layer between business logic and 
@@ -96,16 +98,19 @@ between persistroids and the connector.
 *init-fn*<br>
 Optional fn provided on initialization, for default bootstrapping of items not-yet 
 found in store; this prevents repeated round-trips to storage in the case an item 
-isn't found there.
+isn't found there. 
+See [example](https://github.com/s-doti/persistroids/blob/test/persistroids/t_core.clj#L32).
 
 *cache-key*<br>
 Optional fn provided on initialization, for extracting persistent identity out of 
 query args; e.g. in case your args contain non-identity information such as time 
 fields, etc.
+See [example](https://github.com/s-doti/persistroids/blob/test/persistroids/t_core.clj#L40).
 
 *metrics*<br>
 The persistroids stateful instance contains internal metrics tracking of the 
 amount of cache lookups, in-mem writes, and actual storage reads/flushes.
+See [example](https://github.com/s-doti/persistroids/blob/test/persistroids/t_core.clj#L51).
 
 *checkpointing for DR and the likes*<br>
 This is advanced usage, but sometimes your program may possess internal running state 
